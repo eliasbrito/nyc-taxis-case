@@ -1,8 +1,8 @@
 variable "databricks_host" {
-    default = <sua_url>
+    default = "https://dbc-0a068d4f-2beb.cloud.databricks.com"
 }
 variable "databricks_token" {
-    default = <seu_token> # está aqui para fins didáticos
+    default = "dapi478f39808d4aa569c9ee77ad13b57018" # está aqui para fins didáticos
 }
 
 variable "bronze_bucket_name" {
