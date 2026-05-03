@@ -7,6 +7,9 @@
 
 *.terraform.lock.*
 
+# coloquei esse aqui para evitar expor minhas credenciais aws
+*.tfvars
+
 # Crash log files
 crash.log
 crash.*.log
@@ -44,3 +47,7 @@ terraform.rc
 # Optional: ignore plan files saved before destroying Terraform configuration
 # Uncomment the line below if you want to ignore planout files.
 # planout
+100-databricks/terraform.tfvars
+100-databricks/terraform.tfvars
+100-databricks/terraform.tfvars
+100-databricks/terraform.tfvars
