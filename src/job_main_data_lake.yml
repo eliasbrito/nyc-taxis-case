@@ -1,0 +1,28 @@
+resources:
+  jobs:
+    Job_Main_NYC_Data_Lake:
+      name: Job Main NYC Data Lake
+      tasks:
+        - task_key: ingestion_bronze
+          spark_python_task:
+            python_file: /Workspace/Users/elias.back.rj@gmail.com/nyc-taxis-case/src/bronze/ingestion_bronze.py
+          environment_key: Default
+        - task_key: bronze_to_silver
+          depends_on:
+            - task_key: ingestion_bronze
+          spark_python_task:
+            python_file: /Workspace/Users/elias.back.rj@gmail.com/nyc-taxis-case/src/silver/bronze_to_silver.py
+          environment_key: Default
+        - task_key: silver_to_gold
+          depends_on:
+            - task_key: bronze_to_silver
+          spark_python_task:
+            python_file: /Workspace/Users/elias.back.rj@gmail.com/nyc-taxis-case/src/gold/silver_to_gold.py
+          environment_key: Default
+      queue:
+        enabled: true
+      environments:
+        - environment_key: Default
+          spec:
+            environment_version: "5"
+      performance_target: PERFORMANCE_OPTIMIZED
