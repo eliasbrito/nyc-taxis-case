@@ -213,8 +213,8 @@ Permissões para criar:
 * IAM Policy
 * DynamoDB
 * PAT (Personal Access Token) no Databricks para realizar a integração External Location -> Bucket S3
- Ao clonar projeto, editar o terraform.tfvars que está em 100-databricks inserindo Access Key e Secret Access Key de sua conta AWS. Este passo é necessário para criar o secrets scope no Databricks que vai garantir que o boto3 possa acessar e escrever dados no S3. Este arquivo não deve ser versionado.
- Inserir também a URL (domínio) de sua conta Databricks e seu PAT no arquivo variables.tf que está em 100-databricks inserindo. Esta etapa é importante para que sejam criados corretamente os External Locations entre Databricks e S3.
+ Ao clonar projeto, editar o terraform.tfvars que está em 100-databricks inserindo Access Key, Secret Access Key de sua conta AWS. Inserir também a URL (domínio) de sua conta Databricks e seu PAT. Este passo é necessário para criar o secrets scope e external locations no Databricks que vai garantir que o boto3 possa acessar e escrever dados no S3, assim como o Catalog possa visualizar as external tables. Este arquivo não deve ser versionado.
+
  Criar a integração do Git e Databricks. Etapa importante que disponibiliza tanto o código de processamento de dados, quanto as consultas SQL no ambiente Databricks.
 
 
